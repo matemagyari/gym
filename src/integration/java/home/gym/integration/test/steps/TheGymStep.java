@@ -11,9 +11,6 @@ import cucumber.annotation.en.Given;
 import cucumber.annotation.en.Then;
 import cucumber.annotation.en.When;
 
-//hello
-//master comment
-//comment
 public class TheGymStep {
 
     @Given("^members in system$")
@@ -34,5 +31,4 @@ public class TheGymStep {
     public void sms_sent(List<SMSMessageDO> dos) {
         // Express the Regexp above with the code you wish you had
     }
-    //bello
 }

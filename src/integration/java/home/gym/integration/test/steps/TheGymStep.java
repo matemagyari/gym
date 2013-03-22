@@ -12,6 +12,7 @@ import cucumber.annotation.en.Then;
 import cucumber.annotation.en.When;
 
 //master comment
+//comment
 public class TheGymStep {
 
     @Given("^members in system$")

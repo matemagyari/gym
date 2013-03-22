@@ -10,7 +10,7 @@ import java.util.List;
 import cucumber.annotation.en.Given;
 import cucumber.annotation.en.Then;
 import cucumber.annotation.en.When;
-//comment
+
 public class TheGymStep {
 
     @Given("^members in system$")

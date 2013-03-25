@@ -9,8 +9,7 @@ public class Location {
 	}
 
 	public String textFormat() {
-		// TODO Auto-generated method stub
-		return null;
+		return location;
 	}
 
 }

@@ -8,8 +8,7 @@
 	<properties>
 		<spring.version>3.0.5.RELEASE</spring.version>
 		<camel.version>2.9.0-RC1</camel.version>
-		<spring.version>3.0.5.RELEASE</spring.version>
-		<cucumber-jvm.version>1.0.0.RC1</cucumber-jvm.version>
+		<cucumber-jvm.version>1.1.1</cucumber-jvm.version>
 	</properties>
 
 	<dependencies>
@@ -259,12 +258,6 @@
 
 		<!-- Cucumber dependencies -->
 		<dependency>
-			<groupId>gamesys.qa</groupId>
-			<artifactId>cucumber-junit</artifactId>
-			<version>1.0.0.RC1.1</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-picocontainer</artifactId>
 			<version>${cucumber-jvm.version}</version>
@@ -272,7 +265,7 @@
 		</dependency>
 		<dependency>
 			<groupId>info.cukes</groupId>
-			<artifactId>cucumber-core</artifactId>
+			<artifactId>cucumber-junit</artifactId>
 			<version>${cucumber-jvm.version}</version>
 			<scope>test</scope>
 		</dependency>
@@ -288,6 +281,79 @@
 
 	<build>
 		<plugins>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<check>
+						<totalBranchRate>89</totalBranchRate>
+						<totalLineRate>90</totalLineRate>
+					</check>
+					<instrumentation>
+						<excludes>
+						</excludes>
+					</instrumentation>
+				</configuration>
+
+				<executions>
+					<execution>
+						<configuration>
+							<options>
+								<option>ignoreTrivial</option>
+								<option>ignoreTrivial=true</option>
+							</options>
+						</configuration>
+						<phase>verify</phase>
+						<goals>
+							<goal>clean</goal>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.5</version>
+				<executions>
+					<execution>
+						<id>add-test-source</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>add-test-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/integration/java</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>2.9</version>
+				<executions>
+					<execution>
+						<id>integration-test</id>
+						<goals>
+							<goal>integration-test</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>verify</id>
+						<goals>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>

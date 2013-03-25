@@ -1,12 +1,21 @@
 package home.gym.infrastructure.service;
 
-import home.gym.domain.service.InformationSystemReader;
+import java.util.List;
 
-public class RemoteInformationSystemReader implements InformationSystemReader {
+import org.springframework.stereotype.Component;
 
-    @Override
-    public void read() {
-        throw new org.apache.commons.lang.NotImplementedException("TODO mmagyari");
-    }
+import home.gym.domain.model.event.EventNotification;
+import home.gym.domain.service.EventCalendar;
+
+@Component
+public class RemoteInformationSystemReader implements EventCalendar {
+
+	@Override
+	public List<EventNotification> collectEventNotifications() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 
 }

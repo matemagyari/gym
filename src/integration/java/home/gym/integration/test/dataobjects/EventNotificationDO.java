@@ -1,18 +1,18 @@
-package home.gym.integration.test.steps.dataobjects;
+package home.gym.integration.test.dataobjects;
 
-public class EventDO {
+public class EventNotificationDO {
 
-    private String eventType;
+    private String eventNotificationType;
     private long member;
     private String location;
     private String time;
 
-    public String getEventType() {
-        return eventType;
+    public String getEventNotificationType() {
+        return eventNotificationType;
     }
 
-    public void setEventType(String eventType) {
-        this.eventType = eventType;
+    public void setEventNotificationType(String eventType) {
+        this.eventNotificationType = eventType;
     }
 
     public long getMember() {

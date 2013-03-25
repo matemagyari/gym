@@ -1,11 +1,19 @@
-package home.gym.integration.test.steps.dataobjects;
+package home.gym.integration.test.dataobjects;
 
 public class SMSMessageDO {
 
     private String telephoneNumber;
     private String textContains;
+    
+    public SMSMessageDO(String telephoneNumber, String textContains) {
+		this.telephoneNumber = telephoneNumber;
+		this.textContains = textContains;
+	}
 
-    public String getTextContains() {
+	public SMSMessageDO() {
+	}
+
+	public String getTextContains() {
         return textContains;
     }
 

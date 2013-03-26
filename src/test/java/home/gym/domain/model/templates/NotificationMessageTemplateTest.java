@@ -23,7 +23,7 @@ public class NotificationMessageTemplateTest {
 	    MemberName name = MemberName.createWithFirstName("Kata") ;
         Member member = new Member(name, null);
         Location location = new Location("W12 Q34");
-        DateTime dateTime = new DateTime();
+        DateTime dateTime = new DateTime(2013,6,17,9,30,0,0);
         eventNotification = new EventNotification(eventType, member, location, dateTime);
 	}
 	

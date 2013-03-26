@@ -20,8 +20,12 @@ import java.util.List;
 import java.util.Map;
 
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 public class TransformerUtil {
+    
+    private static DateTimeFormatter formatter = DateTimeFormat.forPattern("dd.MM.yyy HH:mm");
 
 	public static List<NotificationMessageTemplate> transform(
 			List<NotificationTemplateDO> notificationTemplateDOs) {
@@ -72,7 +76,7 @@ public class TransformerUtil {
 		EventNotificationType type = new EventNotificationType(notificationDO.getEventNotificationType());
 		Member member = memberStore.get(notificationDO.getMember());
 		Location location = new Location(notificationDO.getLocation());
-		DateTime dateTime = new DateTime();
+		DateTime dateTime = formatter.parseDateTime(notificationDO.getTime());
 		return new EventNotification(type, member, location, dateTime);
 	}
 
@@ -80,7 +84,7 @@ public class TransformerUtil {
 		EmailMessage emailMessage = new EmailMessage();
 		emailMessage.setTo(emailMessageDO.getEmailAddress());
 		emailMessage.setBody(emailMessageDO.getTextContains());
-		emailMessage.setSubject(null);
+        emailMessage.setSubject(emailMessageDO.getSubject());
 		return emailMessage;
 	}
 

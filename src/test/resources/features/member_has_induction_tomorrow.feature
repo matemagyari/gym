@@ -17,8 +17,8 @@ Feature: Member has induction tomorrow
     When monitoring is scheduled
     
     Then email sent
-    | Email Address  | Text Contains                                              |
-    | kata@gmail.com | Dear Kata, your induction is due 17.06.2013 09:30 at W12 Q34. |
+    | Email Address  | Subject      | Text Contains                                                 |
+    | kata@gmail.com | some subject | Dear Kata, your induction is due 17.06.2013 09:30 at W12 Q34. |
     
     And sms sent 
     | Telephone Number | Text Contains                                              |

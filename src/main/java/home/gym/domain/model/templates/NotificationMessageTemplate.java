@@ -4,15 +4,15 @@ import home.gym.domain.model.MessageText;
 import home.gym.domain.model.event.EventNotification;
 import home.gym.domain.model.event.EventNotificationType;
 
+import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
-import org.joda.time.format.ISODateTimeFormat;
 
 public class NotificationMessageTemplate {
 
     private static final String FIRST_NAME_PLACEHOLDER = "\\{firstName\\}";
     private static final String LOCATION_PLACEHOLDER = "\\{location\\}";
     private static final String DATETIME_PLACEHOLDER = "\\{datetime\\}";
-    private static final DateTimeFormatter formatter = ISODateTimeFormat.dateHourMinute();
+    private static DateTimeFormatter formatter = DateTimeFormat.forPattern("dd.MM.yyy HH:mm");
 
     private final EventNotificationType eventType;
     private final String messageTextTemplate;
@@ -38,16 +38,9 @@ public class NotificationMessageTemplate {
 
         String printableDate = formatter.print(eventNotification.getDateTime());
 
-        // text.replaceAll(NotificationMessageTemplate.FIRST_NAME_PLACEHOLDER,
-        // eventNotification.getMember().getFirstName())
-        // .replaceAll(NotificationMessageTemplate.LOCATION_PLACEHOLDER,
-        // eventNotification.getLocation().textFormat())
-        // .replaceAll(NotificationMessageTemplate.DATETIME_PLACEHOLDER,
-        // printableDate);
-        text = text.replaceAll(NotificationMessageTemplate.FIRST_NAME_PLACEHOLDER, eventNotification.getMember().getFirstName());
-        text = text.replaceAll(NotificationMessageTemplate.DATETIME_PLACEHOLDER, printableDate);
-        text = text.replaceAll(NotificationMessageTemplate.LOCATION_PLACEHOLDER, eventNotification.getLocation().textFormat());
-        return text;
+        return text.replaceAll(NotificationMessageTemplate.FIRST_NAME_PLACEHOLDER, eventNotification.getMember().getFirstName())
+                   .replaceAll(NotificationMessageTemplate.DATETIME_PLACEHOLDER, printableDate)
+                   .replaceAll(NotificationMessageTemplate.LOCATION_PLACEHOLDER, eventNotification.getLocation().textFormat());
     }
 
     public EventNotificationType getEventType() {

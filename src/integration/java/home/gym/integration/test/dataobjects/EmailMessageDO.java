@@ -4,6 +4,7 @@ public class EmailMessageDO {
 
     private String emailAddress;
     private String textContains;
+    private String subject;
 
     public String getEmailAddress() {
         return emailAddress;
@@ -19,6 +20,14 @@ public class EmailMessageDO {
 
     public void setTextContains(String textContains) {
         this.textContains = textContains;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 
 }

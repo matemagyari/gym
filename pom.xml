@@ -20,6 +20,11 @@
 
 	<dependencies>
 
+		<dependency>
+			<groupId>home.gym</groupId>
+			<artifactId>gym-calendar-api</artifactId>
+			<version>0.1-SNAPSHOT</version>
+		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -283,6 +288,16 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>13.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
+		</dependency>
 	</dependencies>
 
 

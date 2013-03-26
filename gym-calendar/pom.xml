@@ -1,10 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org//XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>home.gym</groupId>
-	<artifactId>gym-parent</artifactId>
-	<version>0.1-SNAPSHOT</version>
-	<name>Gym Parent</name>
-	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>home.gym</groupId>
+		<artifactId>gym-parent</artifactId>
+		<version>0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>gym-calendar</artifactId>
+
+	<name>Gym Calendar</name>
 
 	<properties>
 		<spring.version>3.0.5.RELEASE</spring.version>
@@ -12,14 +17,13 @@
 		<cucumber-jvm.version>1.1.1</cucumber-jvm.version>
 	</properties>
 
-	<modules>
-		<module>gym-calendar</module>
-		<module>gym-calendar-api</module>
-		<module>gym-notification</module>
-	</modules>
-
 	<dependencies>
 
+		<dependency>
+			<groupId>home.gym</groupId>
+			<artifactId>gym-calendar-api</artifactId>
+			<version>0.1-SNAPSHOT</version>
+		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -288,6 +292,38 @@
 
 	<build>
 		<plugins>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<check>
+						<totalBranchRate>0</totalBranchRate>
+						<totalLineRate>0</totalLineRate>
+					</check>
+					<instrumentation>
+						<excludes>
+						</excludes>
+					</instrumentation>
+				</configuration>
+
+				<executions>
+					<execution>
+						<configuration>
+							<options>
+								<option>ignoreTrivial</option>
+								<option>ignoreTrivial=true</option>
+							</options>
+						</configuration>
+						<phase>verify</phase>
+						<goals>
+							<goal>clean</goal>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>

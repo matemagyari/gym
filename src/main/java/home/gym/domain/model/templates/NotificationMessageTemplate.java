@@ -12,7 +12,7 @@ public class NotificationMessageTemplate {
     private static final String FIRST_NAME_PLACEHOLDER = "\\{firstName\\}";
     private static final String LOCATION_PLACEHOLDER = "\\{location\\}";
     private static final String DATETIME_PLACEHOLDER = "\\{datetime\\}";
-    private static DateTimeFormatter formatter = DateTimeFormat.forPattern("dd.MM.yyy HH:mm");
+    private static DateTimeFormatter formatter =  DateTimeFormat.forPattern("dd.MM.yyy HH:mm");
 
     private final EventNotificationType eventType;
     private final String messageTextTemplate;
@@ -34,11 +34,10 @@ public class NotificationMessageTemplate {
 
     private String resolvePlaceholders(EventNotification eventNotification) {
 
-        String text = messageTextTemplate;
-
         String printableDate = formatter.print(eventNotification.getDateTime());
 
-        return text.replaceAll(NotificationMessageTemplate.FIRST_NAME_PLACEHOLDER, eventNotification.getMember().getFirstName())
+        return messageTextTemplate
+                   .replaceAll(NotificationMessageTemplate.FIRST_NAME_PLACEHOLDER, eventNotification.getMember().getFirstName())
                    .replaceAll(NotificationMessageTemplate.DATETIME_PLACEHOLDER, printableDate)
                    .replaceAll(NotificationMessageTemplate.LOCATION_PLACEHOLDER, eventNotification.getLocation().textFormat());
     }

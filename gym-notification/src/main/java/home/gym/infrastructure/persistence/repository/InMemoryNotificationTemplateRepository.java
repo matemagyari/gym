@@ -8,6 +8,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,6 +18,18 @@ public class InMemoryNotificationTemplateRepository implements
 		NotificationMessageTemplateRepository {
 	
 	private Map<EventNotificationType, NotificationMessageTemplate> map = new HashMap<EventNotificationType, NotificationMessageTemplate>();
+	
+	@Resource
+	private NotificationTemplateStore notificationTemplateStore;
+	
+	@SuppressWarnings("unused")
+    @PostConstruct
+	private void populate() {
+	    List< NotificationMessageTemplate> templates = notificationTemplateStore.readAll();
+	    for (NotificationMessageTemplate template : templates) {
+            map.put(template.getEventType(), template);
+        }
+	}
 
 	@Override
 	public void store(List<NotificationMessageTemplate> notificationTemplates) {

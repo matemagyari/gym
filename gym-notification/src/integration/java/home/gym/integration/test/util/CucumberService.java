@@ -11,7 +11,7 @@ public class CucumberService {
     private static ClassPathXmlApplicationContext ctx;
 
     static {
-        String[] contextPaths = new String[] { "classpath:META-INF/applicationContext-gym-cucumber.xml" };
+        String[] contextPaths = new String[] { "classpath:META-INF/applicationContext-gym-basic-cucumber.xml" };
         ctx = new ClassPathXmlApplicationContext(contextPaths, true);
     }
 

@@ -9,7 +9,8 @@
 
 
 
-	<import resource="applicationContext-gym.xml"/>
+	<import resource="applicationContext-gym-basic.xml"/>
+	
 	<bean id="eventCalendar" class="home.gym.integration.test.stubdependencies.FakeLegacySystem"/>
 	<bean id="emailSenderAdapter" class="home.gym.integration.test.stubdependencies.FakeEmailSenderAdapter"/>
 	<bean id="smsSenderAdapter" class="home.gym.integration.test.stubdependencies.FakeSMSSenderAdapter"/>

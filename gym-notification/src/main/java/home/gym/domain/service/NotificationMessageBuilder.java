@@ -13,23 +13,19 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class NotificationMessageBuilder {
-	
-	@Resource
-	private NotificationMessageTemplateRepository notificationMessageTemplateRepository;
 
-	public NotificationMessage build(EventNotification eventNotification) {
-		
-		
-		NotificationMessageTemplate messageTemplate = notificationMessageTemplateRepository
-				.find(eventNotification.getType());
-		
-		MessageText messageText = messageTemplate
-				.generateMessageText(eventNotification);
-		
-		MessageDestination destination = new MessageDestination(
-				eventNotification.getMemberContacts());
-		
-		return new NotificationMessage(destination, messageText);
-	}
+    @Resource
+    private NotificationMessageTemplateRepository notificationMessageTemplateRepository;
+
+    public NotificationMessage build(EventNotification eventNotification) {
+
+        NotificationMessageTemplate messageTemplate = notificationMessageTemplateRepository.find(eventNotification.getType());
+
+        MessageText messageText = messageTemplate.generateMessageText(eventNotification);
+
+        MessageDestination destination = new MessageDestination(eventNotification.getMemberContacts());
+
+        return new NotificationMessage(destination, messageText);
+    }
 
 }

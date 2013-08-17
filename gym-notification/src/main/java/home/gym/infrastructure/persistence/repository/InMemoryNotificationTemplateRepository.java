@@ -7,11 +7,14 @@ import home.gym.domain.model.templates.NotificationMessageTemplate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
+
+import com.google.common.collect.Sets;
 
 @Component
 public class InMemoryNotificationTemplateRepository implements
@@ -43,5 +46,10 @@ public class InMemoryNotificationTemplateRepository implements
 	public NotificationMessageTemplate find(EventNotificationType eventType) {
 		return map.get(eventType);
 	}
+
+    @Override
+    public Set<NotificationMessageTemplate> findAll() {
+        return Sets.newHashSet(map.values());
+    }
 
 }

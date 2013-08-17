@@ -8,27 +8,11 @@
                         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
 
-	<context:component-scan base-package="home.gym" />
-	<aop:aspectj-autoproxy />
 
-
-	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations">
-			<list>
-				<value>classpath:gym.properties</value>
-			</list>
-		</property>
-		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
-		<property name="ignoreUnresolvablePlaceholders" value="true" />
-	</bean>
+	<import resource="applicationContext-gym-basic.xml"/>
 	
-	<bean id="multiThreadingMessageSenderContext" class="home.gym.domain.service.sender.core.MultiThreadingMessageSenderContext"/>
-	
-	<bean id="messageSenderContext" class="home.gym.domain.service.sender.core.CommandQueueingMessageSenderContext">
-	   <constructor-arg name="messageSenderContext" ref="multiThreadingMessageSenderContext" />
-	</bean>
-	<!-- 
-	 <bean id="messageSenderContext" class="home.gym.domain.service.sender.core.MultiThreadingMessageSenderContext"/>
-	 -->
+	<bean id="eventCalendar" class="home.gym.infrastructure.loadtest.FakeLegacySystem"/>
+	<bean id="emailSenderAdapter" class="home.gym.integration.test.stubdependencies.FakeEmailSenderAdapter"/>
+	<bean id="smsSenderAdapter" class="home.gym.infrastructure.loadtest.DelayingFakeSMSSenderAdapter"/>
 
 </beans>

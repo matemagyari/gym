@@ -6,8 +6,11 @@ import home.gym.domain.model.templates.NotificationMessageTemplate;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.Test;
+
+import com.google.common.collect.Sets;
 
 public class InMemoryNotificationTemplateRepositoryTest {
 
@@ -34,6 +37,18 @@ public class InMemoryNotificationTemplateRepositoryTest {
 		assertMatches(foundTemplate1, template1);
 		assertMatches(foundTemplate2, template2);
 	}
+	
+	   @Test
+	    public void storeAndFindAll() {
+	        // setup
+	        List<NotificationMessageTemplate> notificationTemplates = Arrays
+	                .asList(template1, template2);
+	        // act
+	        testObj.store(notificationTemplates);
+	        Set<NotificationMessageTemplate> foundTemplates = testObj.findAll();
+	        // assert
+	        assertEquals(Sets.newHashSet(template1, template2), foundTemplates);
+	    }
 
 	private void assertMatches(NotificationMessageTemplate expected,
 			NotificationMessageTemplate actual) {

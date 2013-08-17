@@ -1,5 +1,6 @@
 package home.gym.integration.test.stepdefinitions;
 
+import static org.junit.Assert.assertFalse;
 import home.gym.calendar.api.model.core.member.Member;
 import home.gym.calendar.api.model.event.EventNotification;
 import home.gym.domain.model.NotificationMessageTemplateRepository;
@@ -20,6 +21,7 @@ import home.gym.integration.test.util.TransformerUtil;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -100,5 +102,11 @@ public class TheGymStep {
 		for (SMSMessageDO smsMessageDO : dos) {
 			fakeSMSSenderAdapter.verifySMSWasSent(smsMessageDO);
 		}
+	}
+	
+	@Then("^there are notification templates in the system$")
+	public void there_are_notification_templates_in_the_system()  {
+        Set<NotificationMessageTemplate> templates = notificationTemplateRepository.findAll();
+        assertFalse(templates.isEmpty());
 	}
 }

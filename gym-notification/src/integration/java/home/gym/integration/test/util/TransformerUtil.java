@@ -8,8 +8,8 @@ import home.gym.calendar.api.model.core.member.MemberName;
 import home.gym.calendar.api.model.event.EventNotification;
 import home.gym.calendar.api.model.event.EventNotificationType;
 import home.gym.calendar.api.model.event.Location;
-import home.gym.domain.model.templates.NotificationMessageTemplate;
-import home.gym.domain.service.sender.specific.email.EmailMessage;
+import home.gym.domain.core.model.templates.NotificationMessageTemplate;
+import home.gym.domain.email.model.EmailMessage;
 import home.gym.integration.test.dataobjects.EmailMessageDO;
 import home.gym.integration.test.dataobjects.EventNotificationDO;
 import home.gym.integration.test.dataobjects.MemberDO;
@@ -40,8 +40,8 @@ public class TransformerUtil {
 	
 	private static NotificationMessageTemplate transform(NotificationTemplateDO templateDO) {
 		
-		EventNotificationType eventType = new EventNotificationType(templateDO.getEventNotificationType());
-		return new NotificationMessageTemplate(eventType , templateDO.getText());
+		EventNotificationType eventType = new EventNotificationType(templateDO.eventNotificationType);
+		return new NotificationMessageTemplate(eventType , templateDO.text);
 		
 	}
 
@@ -51,9 +51,9 @@ public class TransformerUtil {
 	}
 	
 	public static Member transform(MemberDO memberDO) {
-		MemberName name = MemberName.createWithFirstName(memberDO.getName());
-		PhoneNumber phoneNumber = new PhoneNumber(memberDO.getTelephoneNumber());
-		EmailAddress emailAddress = new EmailAddress(memberDO.getEmailAddress());
+		MemberName name = MemberName.createWithFirstName(memberDO.name);
+		PhoneNumber phoneNumber = new PhoneNumber(memberDO.telephoneNumber);
+		EmailAddress emailAddress = new EmailAddress(memberDO.emailAddress);
 		Contacts contacts = new Contacts(phoneNumber,emailAddress);
 		return new Member(name , contacts);
 	}
@@ -73,18 +73,18 @@ public class TransformerUtil {
 			EventNotificationDO notificationDO, Map<Long, Member> memberStore) {
 
 		
-		EventNotificationType type = new EventNotificationType(notificationDO.getEventNotificationType());
-		Member member = memberStore.get(notificationDO.getMember());
-		Location location = new Location(notificationDO.getLocation());
-		DateTime dateTime = formatter.parseDateTime(notificationDO.getTime());
+		EventNotificationType type = new EventNotificationType(notificationDO.eventNotificationType);
+		Member member = memberStore.get(notificationDO.member);
+		Location location = new Location(notificationDO.location);
+		DateTime dateTime = formatter.parseDateTime(notificationDO.time);
 		return new EventNotification(type, member, location, dateTime);
 	}
 
 	public static EmailMessage transform(EmailMessageDO emailMessageDO) {
 		EmailMessage emailMessage = new EmailMessage();
-		emailMessage.setTo(emailMessageDO.getEmailAddress());
-		emailMessage.setBody(emailMessageDO.getTextContains());
-        emailMessage.setSubject(emailMessageDO.getSubject());
+		emailMessage.setTo(emailMessageDO.emailAddress);
+		emailMessage.setBody(emailMessageDO.textContains);
+        emailMessage.setSubject(emailMessageDO.subject);
 		return emailMessage;
 	}
 

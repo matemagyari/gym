@@ -3,10 +3,10 @@ package home.gym.integration.test.stepdefinitions;
 import static org.junit.Assert.assertFalse;
 import home.gym.calendar.api.model.core.member.Member;
 import home.gym.calendar.api.model.event.EventNotification;
-import home.gym.domain.model.NotificationMessageTemplateRepository;
-import home.gym.domain.model.templates.NotificationMessageTemplate;
-import home.gym.domain.service.EventMonitor;
-import home.gym.domain.service.sender.specific.email.EmailMessage;
+import home.gym.domain.core.model.NotificationMessageTemplateRepository;
+import home.gym.domain.core.model.templates.NotificationMessageTemplate;
+import home.gym.domain.core.service.EventMonitor;
+import home.gym.domain.email.model.EmailMessage;
 import home.gym.integration.test.dataobjects.EmailMessageDO;
 import home.gym.integration.test.dataobjects.EventNotificationDO;
 import home.gym.integration.test.dataobjects.MemberDO;
@@ -56,7 +56,7 @@ public class TheGymStep {
 	public void members_in_system(List<MemberDO> memberDOs) {
 		for (MemberDO memberDO : memberDOs) {
 			Member member = TransformerUtil.transform(memberDO);
-			memberStore.put(memberDO.getId(), member);
+			memberStore.put(memberDO.id, member);
 		}
 	}
 

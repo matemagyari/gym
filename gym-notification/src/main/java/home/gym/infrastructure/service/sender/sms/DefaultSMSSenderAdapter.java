@@ -1,10 +1,10 @@
 package home.gym.infrastructure.service.sender.sms;
 
-import org.springframework.stereotype.Component;
+import home.gym.domain.sms.service.SMSSenderAdapter;
 
-import home.gym.domain.service.sender.specific.sms.SMSSenderAdapter;
+import javax.inject.Named;
 
-@Component
+@Named
 public class DefaultSMSSenderAdapter implements SMSSenderAdapter {
 
 	@Override

@@ -1,14 +1,14 @@
 package home.gym.infrastructure.persistence.repository;
 
-import home.gym.domain.model.templates.NotificationMessageTemplate;
+import home.gym.domain.core.model.templates.NotificationMessageTemplate;
 
 import java.util.List;
 
-import org.springframework.stereotype.Component;
+import javax.inject.Named;
 
 import com.google.common.collect.Lists;
 
-@Component
+@Named
 public class XlsBasedNotificationTemplateStore implements NotificationTemplateStore {
 
     @Override

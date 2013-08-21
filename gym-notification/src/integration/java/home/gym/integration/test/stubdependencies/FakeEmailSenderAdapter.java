@@ -5,8 +5,8 @@ import java.util.List;
 
 import junit.framework.Assert;
 
-import home.gym.domain.service.sender.specific.email.EmailMessage;
-import home.gym.domain.service.sender.specific.email.EmailSenderAdapter;
+import home.gym.domain.email.model.EmailMessage;
+import home.gym.domain.email.service.EmailSenderAdapter;
 
 public class FakeEmailSenderAdapter implements EmailSenderAdapter {
 	

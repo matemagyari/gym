@@ -2,7 +2,7 @@ package home.gym.infrastructure.persistence.repository;
 
 import static org.junit.Assert.assertEquals;
 import home.gym.calendar.api.model.event.EventNotificationType;
-import home.gym.domain.model.templates.NotificationMessageTemplate;
+import home.gym.domain.core.model.templates.NotificationMessageTemplate;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,12 +14,12 @@ import com.google.common.collect.Sets;
 
 public class InMemoryNotificationTemplateRepositoryTest {
 
-	InMemoryNotificationTemplateRepository testObj = new InMemoryNotificationTemplateRepository();
+	private InMemoryNotificationTemplateRepository testObj = new InMemoryNotificationTemplateRepository();
 
-	NotificationMessageTemplate template1 = new NotificationMessageTemplate(
+	private NotificationMessageTemplate template1 = new NotificationMessageTemplate(
 			new EventNotificationType("32"), "y");
 
-	NotificationMessageTemplate template2 = new NotificationMessageTemplate(
+	private NotificationMessageTemplate template2 = new NotificationMessageTemplate(
 			new EventNotificationType("46"), "fgfg");
 
 	@Test

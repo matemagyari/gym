@@ -1,6 +1,6 @@
 package home.gym.integration.test.stubdependencies;
 
-import home.gym.domain.service.sender.specific.sms.SMSSenderAdapter;
+import home.gym.domain.sms.service.SMSSenderAdapter;
 import home.gym.integration.test.dataobjects.SMSMessageDO;
 
 import java.util.ArrayList;

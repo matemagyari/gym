@@ -6,7 +6,8 @@ import home.gym.calendar.api.model.core.member.MemberName;
 import home.gym.calendar.api.model.event.EventNotification;
 import home.gym.calendar.api.model.event.EventNotificationType;
 import home.gym.calendar.api.model.event.Location;
-import home.gym.domain.model.MessageText;
+import home.gym.domain.core.model.MessageText;
+import home.gym.domain.core.model.templates.NotificationMessageTemplate;
 
 import org.joda.time.DateTime;
 import org.junit.Before;

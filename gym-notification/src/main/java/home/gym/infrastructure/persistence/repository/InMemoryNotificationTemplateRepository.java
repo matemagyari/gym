@@ -1,8 +1,8 @@
 package home.gym.infrastructure.persistence.repository;
 
 import home.gym.calendar.api.model.event.EventNotificationType;
-import home.gym.domain.model.NotificationMessageTemplateRepository;
-import home.gym.domain.model.templates.NotificationMessageTemplate;
+import home.gym.domain.core.model.NotificationMessageTemplateRepository;
+import home.gym.domain.core.model.templates.NotificationMessageTemplate;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,12 +11,11 @@ import java.util.Set;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
-
-import org.springframework.stereotype.Component;
+import javax.inject.Named;
 
 import com.google.common.collect.Sets;
 
-@Component
+@Named
 public class InMemoryNotificationTemplateRepository implements
 		NotificationMessageTemplateRepository {
 	

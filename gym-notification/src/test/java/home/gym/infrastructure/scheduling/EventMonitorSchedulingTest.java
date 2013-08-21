@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.atLeast;
 import static org.mockito.Mockito.verify;
-import home.gym.domain.service.EventMonitor;
+import home.gym.domain.core.service.EventMonitor;
 
 import javax.annotation.Resource;
 

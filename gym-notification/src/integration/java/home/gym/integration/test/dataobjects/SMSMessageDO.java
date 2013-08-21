@@ -5,8 +5,8 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class SMSMessageDO {
 
-    private String telephoneNumber;
-    private String textContains;
+    public String telephoneNumber;
+    public String textContains;
     
     public SMSMessageDO(String telephoneNumber, String textContains) {
 		this.telephoneNumber = telephoneNumber;
@@ -16,22 +16,6 @@ public class SMSMessageDO {
 	public SMSMessageDO() {
 	}
 
-	public String getTextContains() {
-        return textContains;
-    }
-
-    public void setTextContains(String textContains) {
-        this.textContains = textContains;
-    }
-
-    public String getTelephoneNumber() {
-        return telephoneNumber;
-    }
-
-    public void setTelephoneNumber(String telephoneNumber) {
-        this.telephoneNumber = telephoneNumber;
-    }
-    
     @Override
     public boolean equals(Object other) {
         if (!(other instanceof SMSMessageDO)) {

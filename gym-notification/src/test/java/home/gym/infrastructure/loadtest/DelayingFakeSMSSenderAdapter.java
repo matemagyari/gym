@@ -1,6 +1,6 @@
 package home.gym.infrastructure.loadtest;
 
-import home.gym.domain.service.sender.specific.sms.SMSSenderAdapter;
+import home.gym.domain.sms.service.SMSSenderAdapter;
 
 import java.util.List;
 

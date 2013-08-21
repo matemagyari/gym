@@ -8,7 +8,7 @@
 	<import resource="classpath:/META-INF/applicationContext-gym.xml" />
 
 	<bean id="eventMonitor" class="org.mockito.Mockito" factory-method="mock" scope="singleton">
-		<constructor-arg value="home.gym.domain.service.EventMonitor" />
+		<constructor-arg value="home.gym.domain.core.service.EventMonitor" />
 	</bean>
 
     <!-- TODO this should even be here. investigate -->

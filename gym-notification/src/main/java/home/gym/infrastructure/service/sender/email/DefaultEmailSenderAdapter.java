@@ -1,11 +1,11 @@
 package home.gym.infrastructure.service.sender.email;
 
-import org.springframework.stereotype.Component;
+import home.gym.domain.email.model.EmailMessage;
+import home.gym.domain.email.service.EmailSenderAdapter;
 
-import home.gym.domain.service.sender.specific.email.EmailMessage;
-import home.gym.domain.service.sender.specific.email.EmailSenderAdapter;
+import javax.inject.Named;
 
-@Component
+@Named
 public class DefaultEmailSenderAdapter implements EmailSenderAdapter {
 
 	@Override

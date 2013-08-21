@@ -22,13 +22,13 @@
 		<property name="ignoreUnresolvablePlaceholders" value="true" />
 	</bean>
 	
-	<bean id="multiThreadingMessageSenderContext" class="home.gym.domain.service.sender.core.MultiThreadingMessageSenderContext"/>
+	<bean id="multiThreadingMessageSenderContext" class="home.gym.domain.core.service.sender.core.MultiThreadingMessageSenderContext"/>
 	
-	<bean id="messageSenderContext" class="home.gym.domain.service.sender.core.CommandQueueingMessageSenderContext">
+	<bean id="messageSenderContext" class="home.gym.domain.core.service.sender.core.CommandQueueingMessageSenderContext">
 	   <constructor-arg name="messageSenderContext" ref="multiThreadingMessageSenderContext" />
 	</bean>
 	<!-- 
-	 <bean id="messageSenderContext" class="home.gym.domain.service.sender.core.MultiThreadingMessageSenderContext"/>
+	 <bean id="messageSenderContext" class="home.gym.domain.core.service.sender.core.MultiThreadingMessageSenderContext"/>
 	 -->
 
 </beans>

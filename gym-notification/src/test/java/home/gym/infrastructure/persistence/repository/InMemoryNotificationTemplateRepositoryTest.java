@@ -2,7 +2,7 @@ package home.gym.infrastructure.persistence.repository;
 
 import static org.junit.Assert.assertEquals;
 import home.gym.calendar.api.model.event.EventNotificationType;
-import home.gym.domain.core.model.templates.NotificationMessageTemplate;
+import home.gym.domain.core.model.NotificationMessageTemplate;
 
 import java.util.Arrays;
 import java.util.List;

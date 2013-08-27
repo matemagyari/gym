@@ -24,7 +24,7 @@
 	
 	<bean id="multiThreadingMessageSenderContext" class="home.gym.domain.core.service.sender.core.MultiThreadingMessageSenderContext"/>
 	
-	<bean id="messageSenderContext" class="home.gym.domain.core.service.sender.core.CommandQueueingMessageSenderContext">
+	<bean id="messageSenderContext" class="home.gym.domain.core.service.sender.core.PipelineMessageSenderContext">
 	   <constructor-arg name="messageSenderContext" ref="multiThreadingMessageSenderContext" />
 	</bean>
 	<!-- 

@@ -2,9 +2,9 @@ package home.gym.domain.core.service.sender.core;
 
 import home.gym.calendar.api.model.core.contact.Contact;
 import home.gym.domain.core.model.MessageText;
-import home.gym.domain.core.service.sender.commandqueue.Command;
+import home.gym.domain.pipeline.PipelineCommand;
 
-class MessageSendCommand<T extends Contact> implements Command {
+class MessageSendCommand<T extends Contact> implements PipelineCommand {
     
     final T contact;
     final MessageText message;

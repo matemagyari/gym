@@ -4,8 +4,8 @@ import home.gym.calendar.api.model.event.EventNotification;
 import home.gym.domain.core.model.MessageDestination;
 import home.gym.domain.core.model.MessageText;
 import home.gym.domain.core.model.NotificationMessage;
+import home.gym.domain.core.model.NotificationMessageTemplate;
 import home.gym.domain.core.model.NotificationMessageTemplateRepository;
-import home.gym.domain.core.model.templates.NotificationMessageTemplate;
 
 import javax.annotation.Resource;
 import javax.inject.Named;

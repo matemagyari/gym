@@ -1,8 +1,8 @@
 package home.gym.infrastructure.persistence.repository;
 
 import home.gym.calendar.api.model.event.EventNotificationType;
+import home.gym.domain.core.model.NotificationMessageTemplate;
 import home.gym.domain.core.model.NotificationMessageTemplateRepository;
-import home.gym.domain.core.model.templates.NotificationMessageTemplate;
 
 import java.util.HashMap;
 import java.util.List;

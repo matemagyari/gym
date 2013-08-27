@@ -1,7 +1,6 @@
 package home.gym.domain.core.model;
 
 import home.gym.calendar.api.model.event.EventNotificationType;
-import home.gym.domain.core.model.templates.NotificationMessageTemplate;
 
 import java.util.List;
 import java.util.Set;

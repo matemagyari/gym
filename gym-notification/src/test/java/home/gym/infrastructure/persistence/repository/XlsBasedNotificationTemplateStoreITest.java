@@ -1,7 +1,7 @@
 package home.gym.infrastructure.persistence.repository;
 
 import static org.junit.Assert.assertFalse;
-import home.gym.domain.core.model.templates.NotificationMessageTemplate;
+import home.gym.domain.core.model.NotificationMessageTemplate;
 
 import java.util.List;
 

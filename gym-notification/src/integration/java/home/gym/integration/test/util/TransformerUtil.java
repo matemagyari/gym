@@ -8,7 +8,7 @@ import home.gym.calendar.api.model.core.member.MemberName;
 import home.gym.calendar.api.model.event.EventNotification;
 import home.gym.calendar.api.model.event.EventNotificationType;
 import home.gym.calendar.api.model.event.Location;
-import home.gym.domain.core.model.templates.NotificationMessageTemplate;
+import home.gym.domain.core.model.NotificationMessageTemplate;
 import home.gym.domain.email.model.EmailMessage;
 import home.gym.integration.test.dataobjects.EmailMessageDO;
 import home.gym.integration.test.dataobjects.EventNotificationDO;

@@ -1,6 +1,6 @@
 package home.gym.infrastructure.persistence.repository;
 
-import home.gym.domain.core.model.templates.NotificationMessageTemplate;
+import home.gym.domain.core.model.NotificationMessageTemplate;
 
 import java.util.List;
 
